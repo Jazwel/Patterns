@@ -21,16 +21,17 @@ import static ru.netology.stats.DataGenerator.generateCity;
 
 public class ChangingDateTest {
     DataGenerator dataGenerator = new DataGenerator();
-    String city= DataGenerator.generateCity();
-    String phone= faker.phoneNumber().phoneNumber();
+    String city = DataGenerator.generateCity();
+    String phone = faker.phoneNumber().phoneNumber();
     String name = DataGenerator.generateName();
     String firstTime = DataGenerator.generateDate(3, "dd.MM.yyyy");
-    String secondTime = DataGenerator.generateDate(7,"dd.MM.yyyy");
+    String secondTime = DataGenerator.generateDate(7, "dd.MM.yyyy");
 
     @BeforeEach
     void setup() {
         open("http://localhost:9999/");
     }
+
     @Test
     public void shouldChangeMeetingDate() {
         $("[data-test-id=city] input").setValue(city);
@@ -51,7 +52,7 @@ public class ChangingDateTest {
                 .shouldHave(exactText("Необходимо подтверждение"));
         $("[data-test-id='replan-notification'] button").click();
         $("[data-test-id=success-notification] .notification__title")
-                .shouldBe(exactText("Успешно!"),Duration.ofSeconds(40));
+                .shouldBe(exactText("Успешно!"), Duration.ofSeconds(40));
         $(".notification__content")
                 .shouldBe(exactText("Встреча успешно запланирована на  " + secondTime))
                 .shouldBe(visible);

@@ -12,7 +12,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class DataGenerator {
-    public DataGenerator() {
+    private DataGenerator() {
     }
 
     static Faker faker = new Faker(new Locale("ru"));

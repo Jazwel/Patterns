@@ -20,7 +20,7 @@ import static ru.netology.stats.DataGenerator.faker;
 import static ru.netology.stats.DataGenerator.generateCity;
 
 public class ChangingDateTest {
-    DataGenerator dataGenerator = new DataGenerator();
+    DataGenerator dataGenerator;
     String city = DataGenerator.generateCity();
     String phone = faker.phoneNumber().phoneNumber();
     String name = DataGenerator.generateName();
